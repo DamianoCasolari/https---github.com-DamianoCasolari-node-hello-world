@@ -8,14 +8,10 @@ let port = +process.env.PORT || 3000;
 
 
 
-
 const server = http.createServer(function(req,res){
     
 res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"})
 
-// while (newRandomNumber === randomNumber) {
-//   newRandomNumber = Math.floor(Math.random() * 9) + 1;
-// }
 res.end( "<h1>" + randomSentence() + "</h1>" )
 
 })
@@ -29,7 +25,7 @@ server.listen(port, function(){
 
 
 
-// function Random Sentence
+// Random Sentence function 
 
 function randomSentence(){
     const frasiDemotivazionali = [
@@ -46,6 +42,9 @@ function randomSentence(){
     ];
 
     let randomNumber = Math.floor(Math.random() * (frasiDemotivazionali.length - 1)) + 1;
+    while (process.env.FRASE === randomNumber) {
+        randomNumber = Math.floor(Math.random() * 9) + 1;}
+    process.env.FRASE = randomNumber
     const fraseSingola = frasiDemotivazionali[randomNumber];
 
     return fraseSingola;
