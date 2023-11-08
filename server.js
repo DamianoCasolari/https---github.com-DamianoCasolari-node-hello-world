@@ -12,7 +12,7 @@ dotenv.config();
 // I define the port.
 let port = +process.env.PORT || 3000;
 
-// I create the server (req is the request, and res is the response).
+// I create the istance of Server class (req is the request, and res is the response).
 const server = http.createServer(function (req, res) {
 
     // I define that the response will be HTML with the charset set to utf-8.
